@@ -38,12 +38,6 @@ while True:
                         if data.value:
                             print("      Data axs: ", data.axis)
                             print("      Data val: ", data.value)
-    
-    # print(hand.fingers.type)
-    # print(thumb.type)
-    # HE1 = thumb.sensors[0]
-    # print(HE1.type)
-    # print(HE1.data[0].value)
-    # print(hand)
+
     time.sleep(1)
     break

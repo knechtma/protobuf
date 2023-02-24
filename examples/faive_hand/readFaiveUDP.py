@@ -10,13 +10,27 @@ client_socket.settimeout(1)
 hand = faive_hand_pb2.Hand()
 finger = faive_hand_pb2.Finger()
 event = faive_hand_pb2.Event()
-data = b'\x08\x02'
-message = b'Hello, world!'
+command = faive_hand_pb2.Event()
+# message = b'Hello, world!'
 # time.sleep(1.5)
+
+
+command.type = 2
+message = command.SerializeToString()
+print(message)
+
+try: 
+    # print("Try to send data")
+    client_socket.sendto(message, address)
+except:
+    pass
+# print("Sent data")
+
+time.sleep(0.5)
 
 while True:
     try:
-        print("Try to read data")
+        # print("Try to read data")
         rec_data, addr = client_socket.recvfrom(1024)
         print("Received data")
         # print(rec_data)
@@ -85,6 +99,7 @@ while True:
 
     # time.sleep(1)
     time.sleep(0.5)
+
     try: 
         # print("Try to send data")
         client_socket.sendto(message, address)
